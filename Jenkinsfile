@@ -7,7 +7,7 @@ pipeline {
     agent { node { label "maven-sonarqube-slave" } }   
     parameters {
       choice(name: 'Deployment_Type', choices: ['apply', 'destroy'], description: 'Choose deployment or destroy operation')
-      choice(name: 'aws_account', choices: ['374965156099', '654654193818', '922266408974','576900672829'], description: 'aws account hosting image registry')
+      choice(name: 'aws_account', choices: ['923687682943', '654654193818', '922266408974','576900672829'], description: 'aws account hosting image registry')
       choice(name: 'Environment', choices: ['Dev', 'QA', 'UAT', 'Prod'], description: 'Target environment for deployment')
       choice(name: 'Cluster', choices: ['betech-cluster', 'dev-cluster','uat-cluster'], description: 'Kubeconfig file update for the EKS cluster')
       string(name: 'ecr_tag', defaultValue: '1.5.2', description: 'Assign the ECR tag version for the build')
@@ -23,7 +23,7 @@ pipeline {
         expression { params.Deployment_Type == 'apply' }
       }
       steps {
-        git branch: 'master', credentialsId: 'betech-pipeline', url: 'https://github.com/reddotranch/weatherappPYTHON-INADEV.git'
+        git branch: 'master', credentialsId: 'betech-pipeline', url: 'https://github.com/bus57790/weatherappPYTHON-INADEV.git'
       }
     }
 
