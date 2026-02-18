@@ -23,7 +23,7 @@ pipeline {
         expression { params.Deployment_Type == 'apply' }
       }
       steps {
-        git branch: 'master', credentialsId: 'betech-pipeline', url: 'https://github.com/bus57790/weatherappPYTHON-INADEV.git'
+        git branch: 'master', credentialsId: '', url: 'https://github.com/bus57790/weatherappPYTHON-INADEV.git'
       }
     }
 
