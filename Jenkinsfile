@@ -40,7 +40,7 @@ pipeline {
                       ${scannerHome}/bin/sonar-scanner  \
                       -Dsonar.projectKey=weather-app \
                       -Dsonar.projectName='weather-app' \
-                      -Dsonar.host.url=https://sonarqube1.betechinc.com \
+                      -Dsonar.host.url=https://maven-sona.betechinc.com \
                       -Dsonar.token=${SONAR_TOKEN} \
                       -Dsonar.sources=.\
                      """
