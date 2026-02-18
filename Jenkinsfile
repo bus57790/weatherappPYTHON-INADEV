@@ -216,10 +216,10 @@ pipeline {
             emailSubject = 'Application was Successfully Destroyed!!'
           }
           
-          mail bcc: 'betechincorporated@gmail.com', 
+          mail bcc: 'bus57790@hotmail.com', 
                body: emailBody,
                subject: emailSubject, 
-               to: 'tdwaws2024@gmail.com'
+               to: 'bus57790@hotmail.com'
         }
       }
     }
@@ -227,7 +227,7 @@ pipeline {
     post {
          always {
             echo 'Slack Notifications.'
-            slackSend channel: '#all-weatherapp-cicd',
+            slackSend channel: '#all-all-weatherapp-cicd',
                 color: COLOR_MAP[currentBuild.currentResult],
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
