@@ -194,7 +194,7 @@ pipeline {
           
           if (params.Deployment_Type == 'apply') {
             emailBody = '''Build is Over. Check the application using the URL below:
-        https://weatherapp.betechinc.com/
+        https://weatherapp.robustinc.llc/
         Let me know if the changes look okay.
         Thanks,
         TDW System Technologies,
