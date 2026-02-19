@@ -23,7 +23,7 @@ pipeline {
         expression { params.Deployment_Type == 'apply' }
       }
       steps {
-        git branch: 'master', credentialsId: 'betech-pipeline', url: 'https://github.com/bus57790/weatherappPYTHON-INADEV.git'
+        git branch: 'master', credentialsId: '', url: 'https://github.com/bus57790/weatherappPYTHON-INADEV.git'
       }
     }
 
@@ -40,7 +40,7 @@ pipeline {
                       ${scannerHome}/bin/sonar-scanner  \
                       -Dsonar.projectKey=weather-app \
                       -Dsonar.projectName='weather-app' \
-                      -Dsonar.host.url=https://maven-sona.betechinc.com \
+                      -Dsonar.host.url=https://maven-sona.robustinc.llc \
                       -Dsonar.token=${SONAR_TOKEN} \
                       -Dsonar.sources=.\
                      """
@@ -216,10 +216,10 @@ pipeline {
             emailSubject = 'Application was Successfully Destroyed!!'
           }
           
-          mail bcc: 'betechincorporated@gmail.com', 
+          mail bcc: 'bus57790@hotmail.com', 
                body: emailBody,
                subject: emailSubject, 
-               to: 'tdwaws2024@gmail.com'
+               to: 'bus57790@hotmail.com'
         }
       }
     }
@@ -227,7 +227,7 @@ pipeline {
     post {
          always {
             echo 'Slack Notifications.'
-            slackSend channel: '#all-weatherapp-cicd',
+            slackSend channel: '#all-all-weatherapp-cicd',
                 color: COLOR_MAP[currentBuild.currentResult],
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
