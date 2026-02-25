@@ -35,14 +35,30 @@ def get_weather(city):
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>BETECH Weather App - HOTFIX v1.5.4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
 </head>
 <body>
-    <h1>🚨 BETECH Weather Service - Emergency Update</h1>
-    <p>Critical security patch applied - v1.5.4</p>
-    <p>Service operational status: ✅ HEALTHY</p>
+    <h1>Weather App</h1>
+    <form action="/weather" method="get">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+    {% if weather_data %}
+        <h2>Weather in {{ city }}:</h2>
+        <p>Temperature: {{ weather_data.temp }} °F</p>
+        <p>Min Temperature: {{ weather_data.min_temp }} °F</p>
+        <p>Max Temperature: {{ weather_data.max_temp }} °F</p>
+        <p>Pressure: {{ weather_data.pressure }} hPa</p>
+        <p>Humidity: {{ weather_data.humidity }}%</p>
+        <p>Wind Speed: {{ weather_data.wind_speed }} m/s</p>
+        <p>Sunrise: {{ weather_data.sunrise }}</p>
+        <p>Sunset: {{ weather_data.sunset }}</p>
+    {% endif %}
 </body>
 </html>
 """
